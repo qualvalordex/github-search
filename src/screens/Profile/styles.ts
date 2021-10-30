@@ -16,25 +16,31 @@ export const Container = styled.div`
 export const Holder = styled.div`
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+
   width: 100%;
-  height: 100%;
   max-width: 1920px;
+  overflow: auto;
 `;
 
 export const Header = styled.div`
+    position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
+  width: 100%;
   height: 100px;
-  padding: 0 30px;
 
-  /* background-color: #f00; */
+  background-color: #232324;
 `;
 
-export const Logo = styled.img``;
+export const Logo = styled.img`
+    margin-left: 30px;
+`;
 
-export const Content = styled.div`
+export const User = styled.div`
   display: flex;
   flex-direction: row;
   /* flex-grow: 1; */
@@ -42,6 +48,7 @@ export const Content = styled.div`
   justify-content: center;
 
   width: 100%;
+  margin-top: 100px;
 
   /* background-color: #0ff; */
 `;
@@ -130,6 +137,19 @@ export const RepositoryWrapper = styled.div`
 
 export const RepositoryCounter = styled.div`
     margin-top: 10px;
+`;
+
+export const UserRepos = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    /* background-color: #f0f; */
 `;
 
 export const HSpace = styled.div`

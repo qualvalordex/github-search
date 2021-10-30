@@ -14,7 +14,7 @@ import {
   Holder,
   Header,
   Logo,
-  Content,
+  User,
   ProfileImage,
   ProfileDetails,
   Identification,
@@ -24,7 +24,8 @@ import {
   Repositories,
   RepositoryCounter,
   RepositoryWrapper,
-  HSpace,
+  UserRepos,
+  HSpace
 } from "../Profile/styles";
 import smallLogo from "../../assets/smallLogo.png";
 import profileExample from "../../assets/profileExample.png";
@@ -35,9 +36,9 @@ const Profile: React.FC = () => {
       <Holder>
         <Header>
           <Logo src={smallLogo} />
-          <MdArrowBack size="40px" />
+          <MdArrowBack style={{ marginRight: "30px" }} size="40px" />
         </Header>
-        <Content>
+        <User>
           <ProfileImage>
             <img src={profileExample} alt="Profile pic." />
           </ProfileImage>
@@ -75,7 +76,9 @@ const Profile: React.FC = () => {
               </RepositoryCounter>
             </RepositoryWrapper>
           </Repositories>
-        </Content>
+        </User>
+        <UserRepos>
+        </UserRepos>
       </Holder>
     </Container>
   );
