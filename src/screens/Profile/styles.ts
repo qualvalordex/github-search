@@ -40,6 +40,15 @@ export const Logo = styled.img`
     margin-left: 30px;
 `;
 
+export const GoBackButton = styled.div`
+  margin-right: 30px;
+  
+  :hover {
+    opacity: 0.8;
+    cursor: pointer
+  }
+`;
+
 export const User = styled.div`
   display: flex;
   flex-direction: row;

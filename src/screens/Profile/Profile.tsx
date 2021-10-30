@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import {
   MdArrowBack,
   MdLocationOn,
@@ -14,6 +14,7 @@ import {
   Holder,
   Header,
   Logo,
+  GoBackButton,
   User,
   ProfileImage,
   ProfileDetails,
@@ -29,7 +30,7 @@ import {
 } from "../Profile/styles";
 import smallLogo from "../../assets/smallLogo.png";
 import GithubRepoCard from "../../components/GithubRepoCard/GithubRepoCard";
-import { useLocation } from "react-router";
+import { useHistory, useLocation } from "react-router";
 
 interface UsernameState {
   username: string;
@@ -56,6 +57,7 @@ interface UserReposList {
 }
 
 const Profile: React.FC = () => {
+  const history = useHistory();
   const { state } = useLocation<UsernameState>();
   const { username } = state;
 
@@ -78,6 +80,10 @@ const Profile: React.FC = () => {
     setUserRepos(userRepos);
   };
 
+  const handleGoBack = useCallback(() => {
+    history.goBack()
+  }, []);
+
   useEffect(() => {
     getUserData();
     getUserRepo();
@@ -88,7 +94,9 @@ const Profile: React.FC = () => {
       <Holder>
         <Header>
           <Logo src={smallLogo} />
-          <MdArrowBack style={{ marginRight: "30px" }} size="40px" />
+          <GoBackButton onClick={handleGoBack}>
+            <MdArrowBack size="40px" />
+          </GoBackButton>
         </Header>
         <User>
           <ProfileImage>
