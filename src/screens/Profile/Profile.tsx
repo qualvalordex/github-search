@@ -29,6 +29,7 @@ import {
 } from "../Profile/styles";
 import smallLogo from "../../assets/smallLogo.png";
 import profileExample from "../../assets/profileExample.png";
+import GithubRepoCard from "../../components/GithubRepoCard/GithubRepoCard";
 
 const Profile: React.FC = () => {
   return (
@@ -78,6 +79,9 @@ const Profile: React.FC = () => {
           </Repositories>
         </User>
         <UserRepos>
+          <GithubRepoCard name="Repo1" description="qualquer merda aqui" stars="10" forks="20" tech="JavaScript" />
+          <GithubRepoCard name="Repo2" description="typescript eh bom" stars="16" forks="170" tech="TypeScript" />
+          <GithubRepoCard name="Repo3" description="golangueirossss" stars="80k" forks="93" tech="Go" />
         </UserRepos>
       </Holder>
     </Container>
