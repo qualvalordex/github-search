@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState, useCallback } from "react";
 import {
   MdArrowBack,
@@ -29,7 +30,7 @@ import {
   HSpace,
 } from "../Profile/styles";
 import smallLogo from "../../assets/smallLogo.png";
-import GithubRepoCard from "../../components/GithubRepoCard/GithubRepoCard";
+import GithubRepoCard from "./components/GithubRepoCard/GithubRepoCard";
 import { useHistory, useLocation } from "react-router";
 
 interface UsernameState {
@@ -68,6 +69,13 @@ const Profile: React.FC = () => {
     const response = await fetch(`https://api.github.com/users/${username}`);
     const userData = await response.json();
 
+    if (response.status >= 400) {
+      history.push({
+        pathname: "/",
+        search: 'error=true',
+      });
+    }
+
     setUserData(userData);
   };
 
@@ -81,7 +89,7 @@ const Profile: React.FC = () => {
   };
 
   const handleGoBack = useCallback(() => {
-    history.goBack()
+    history.goBack();
   }, []);
 
   useEffect(() => {
@@ -138,16 +146,17 @@ const Profile: React.FC = () => {
           </Repositories>
         </User>
         <UserRepos>
-          {userRepos?.map((element, index) => (
-            <GithubRepoCard
-              key={index}
-              name={element?.name}
-              description={element?.description}
-              stars={element?.stargazers_count}
-              forks={element?.forks_count}
-              tech={element?.language}
-            />
-          ))}
+          {userRepos?.length &&
+            userRepos?.map((element, index) => (
+              <GithubRepoCard
+                key={index}
+                name={element?.name}
+                description={element?.description}
+                stars={element?.stargazers_count}
+                forks={element?.forks_count}
+                tech={element?.language}
+              />
+            ))}
         </UserRepos>
       </Holder>
     </Container>
