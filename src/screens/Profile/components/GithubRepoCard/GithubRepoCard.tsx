@@ -4,7 +4,7 @@ import { VscRepoForked } from "react-icons/vsc";
 import { BsFileCodeFill } from "react-icons/bs";
 
 import { Container, RepositoryName, RepositoryDescription, RepositoryStats } from "./styles";
-import { HSpace } from "../../screens/Profile/styles";
+import { HSpace } from "../../styles";
 
 interface GithubRepo {
   name: string;
